@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
+import { useCounterStore } from "~/store/counter.ts";
+import { storeToRefs } from "pinia";
 
-defineProps<{ msg: string }>()
-
-const count = ref(0)
+defineProps<{ msg: string }>();
+const store = useCounterStore();
+const { count } = storeToRefs(store);
+// const count = ref(0);
 </script>
 
 <template>
