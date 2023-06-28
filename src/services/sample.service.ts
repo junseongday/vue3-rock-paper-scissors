@@ -3,9 +3,7 @@ import axios from "axios";
 // GET 요청 예시
 export const fetchData = async () => {
   try {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
+    const response = await axios.get("/sample/posts");
     return response.data;
   } catch (error) {
     // 에러 처리
