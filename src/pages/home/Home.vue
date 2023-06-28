@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 import HelloWorld from "~/components/HelloWorld.vue";
+import { fetchData } from "~/services/sample.service";
+
+onMounted(() => {
+  console.log(6, "on mounted");
+  fetchData().then((res) => {
+    console.log(9, res);
+  });
+});
 </script>
 
 <template>
