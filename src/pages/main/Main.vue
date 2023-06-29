@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch } from "vue";
 import type { Ref } from "vue";
+import { Log } from "~/interfaces/Main";
 
-const myChoice: Ref<string | null> = ref(null);
-const comChoice: Ref<string | null> = ref(null);
+const myChoice: Ref<Nullable<string>> = ref(null);
+const comChoice: Ref<Nullable<string>> = ref(null);
 const count: Ref<number> = ref(3);
-const winner: Ref<string | null> = ref(null);
+const winner: Ref<Nullable<string>> = ref(null);
 const lifeOfMe: Ref<number> = ref(3);
 const lifeOfCom: Ref<number> = ref(3);
 const isSelectable: Ref<boolean> = ref(true);
 
-interface Log {
-  message: string | null;
-  winner: string | null;
-}
 const logs: Log[] = reactive([]);
 const selects = reactive([
   { name: "가위", value: "scissor" },
