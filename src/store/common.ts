@@ -11,9 +11,9 @@ export const useCommonStore = defineStore("common", {
     },
   },
   getters: {},
-  persist: {
-    enabled: true,
-  },
+  // persist: {
+  //   enabled: true,
+  // },
 });
 
 // Need to be used outside the setup

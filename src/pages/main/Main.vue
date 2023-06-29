@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch } from "vue";
-const myChoice = ref(null);
-const comChoice = ref(null);
-const count = ref(3);
-const winner = ref(null);
-const lifeOfMe = ref(3);
-const lifeOfCom = ref(3);
-const isSelectable = ref(true);
-const logs = reactive([]);
+import type { Ref } from "vue";
+
+const myChoice: Ref<string | null> = ref(null);
+const comChoice: Ref<string | null> = ref(null);
+const count: Ref<number> = ref(3);
+const winner: Ref<string | null> = ref(null);
+const lifeOfMe: Ref<number> = ref(3);
+const lifeOfCom: Ref<number> = ref(3);
+const isSelectable: Ref<boolean> = ref(true);
+
+interface Log {
+  message: string | null;
+  winner: string | null;
+}
+const logs: Log[] = reactive([]);
 const selects = reactive([
   { name: "가위", value: "scissor" },
   { name: "바위", value: "rock" },
@@ -33,7 +40,7 @@ const leftLifeOfCom = computed(() => {
 
 watch(
   () => count.value,
-  (newVal, oldVal) => {
+  (newVal) => {
     if (newVal === 0) {
       // 컴퓨터가 가위바위보를 선택하는
       selectCom();
@@ -51,14 +58,14 @@ watch(
   }
 );
 
-watch(lifeOfMe, async (newVal, oldVal) => {
+watch(lifeOfMe, async (newVal) => {
   if (newVal === 0) {
     // 게임을 종료
     endGame("안타깝네요. 당신이 패배하였습니다.");
   }
 });
 
-watch(lifeOfCom, async (newVal, oldVal) => {
+watch(lifeOfCom, async (newVal) => {
   if (newVal === 0) {
     endGame("축하드립니다. 당신이 승리하였습니다.");
   }
@@ -113,15 +120,15 @@ function whoIsWin() {
   }
 }
 function updateLogs() {
-  let log = {
-    messege: `You: ${myChoice.value}, Computer: ${comChoice.value}`,
+  let log: Log = {
+    message: `You: ${myChoice.value}, Computer: ${comChoice.value}`,
     winner: winner.value,
   };
 
   logs.unshift(log);
 }
 
-function endGame(msg) {
+function endGame(msg: string) {
   setTimeout(() => {
     confirm(msg);
     lifeOfMe.value = 3;
@@ -129,7 +136,7 @@ function endGame(msg) {
     myChoice.value = null;
     comChoice.value = null;
     winner.value = null;
-    logs.value = [];
+    logs.length = 0; // logs 변수 초기화 []
   }, 500);
 }
 </script>
@@ -155,12 +162,14 @@ function endGame(msg) {
       <div class="battle-wrap">
         <img
           v-for="life in lifeOfMe"
+          :key="'me_live_' + life"
           src="/src/assets/images/heart.jpg"
           class="heart"
           alt=""
         />
         <img
           v-for="life in leftLifeOfMe"
+          :key="'me_broken_' + life"
           src="/src/assets/images/broken-heart.jpg"
           class="heart"
           alt=""
@@ -171,12 +180,14 @@ function endGame(msg) {
       <div class="battle-wrap">
         <img
           v-for="life in lifeOfCom"
+          :key="'come_live_' + life"
           src="/src/assets/images/heart.jpg"
           class="heart"
           alt=""
         />
         <img
           v-for="life in leftLifeOfCom"
+          :key="'com_broken_' + life"
           src="/src/assets/images/broken-heart.jpg"
           class="heart"
           alt=""
@@ -220,7 +231,7 @@ function endGame(msg) {
           }"
           v-for="log in logs"
         >
-          {{ log.messege }}
+          {{ log.message }}
         </li>
       </ul>
     </div>

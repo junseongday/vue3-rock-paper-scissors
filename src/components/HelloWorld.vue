@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { useCounterStore } from "~/store/counter.ts";
 import { storeToRefs } from "pinia";
 

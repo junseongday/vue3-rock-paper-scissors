@@ -13,11 +13,11 @@ export const useCounterStore = defineStore("counter", {
     doubleCount: (state) => {
       return state.count * 2;
     },
-    doublePlusOne() {
+    doublePlusOne(): number {
       return this.doubleCount + 1;
     },
   },
-  persist: {
-    enabled: true,
-  },
+  // persist: {
+  //   enabled: true,
+  // },
 });
