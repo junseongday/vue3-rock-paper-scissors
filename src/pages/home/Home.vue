@@ -24,7 +24,8 @@ onMounted(() => {
   <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
+<style>
+@import "~/assets/css/style.css";
 .logo {
   height: 6em;
   padding: 1.5em;

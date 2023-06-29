@@ -10,7 +10,12 @@ const sample = defineComponent({
 });
 
 const routes = [
-  { path: "/", redirect: "/home" },
+  { path: "/", redirect: "/main" },
+  {
+    path: "/main",
+    name: "main",
+    component: () => import("~/pages/main/Main.vue"),
+  },
   {
     path: "/home",
     name: "home",
