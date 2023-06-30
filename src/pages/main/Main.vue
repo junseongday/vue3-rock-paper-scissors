@@ -20,13 +20,13 @@ const selects = reactive([
 
 const myChoiceImg = computed(() => {
   return myChoice.value !== null
-    ? `/images/${myChoice.value}.jpg`
-    : "/images/question.jpg";
+    ? `images/${myChoice.value}.jpg`
+    : "images/question.jpg";
 });
 const comChoiceImg = computed(() => {
   return comChoice.value !== null
-    ? `/images/${comChoice.value}.jpg`
-    : "/images/question.jpg";
+    ? `images/${comChoice.value}.jpg`
+    : "images/question.jpg";
 });
 const leftLifeOfMe = computed(() => {
   return 3 - lifeOfMe.value;
@@ -160,14 +160,14 @@ function endGame(msg: string) {
         <img
           v-for="life in lifeOfMe"
           :key="'me_live_' + life"
-          src="/images/heart.jpg"
+          src="../../../public/images/heart.jpg"
           class="heart"
           alt=""
         />
         <img
           v-for="life in leftLifeOfMe"
           :key="'me_broken_' + life"
-          src="/images/broken-heart.jpg"
+          src="../../../public/images/broken-heart.jpg"
           class="heart"
           alt=""
         />
@@ -178,14 +178,14 @@ function endGame(msg: string) {
         <img
           v-for="life in lifeOfCom"
           :key="'come_live_' + life"
-          src="/images/heart.jpg"
+          src="../../../public/images/heart.jpg"
           class="heart"
           alt=""
         />
         <img
           v-for="life in leftLifeOfCom"
           :key="'com_broken_' + life"
-          src="/images/broken-heart.jpg"
+          src="../../../public/images/broken-heart.jpg"
           class="heart"
           alt=""
         />
