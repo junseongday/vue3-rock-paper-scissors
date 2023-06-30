@@ -71,7 +71,7 @@ watch(lifeOfCom, async (newVal) => {
 function startGame() {
   // 버튼이 보이지 않음
   isSelectable.value = false;
-  if (myChoice === null) {
+  if (myChoice.value === null) {
     alert("가위 바위 보 중 하나를 선택해주세요.");
     isSelectable.value = true;
   } else {
