@@ -22,15 +22,15 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
-  build: {
-    minify: "terser",
-    terserOptions: {
-      //detail to look https://terser.org/docs/api-reference#compress-options
-      compress: {
-        drop_console: false,
-        pure_funcs: ["console.log", "console.info"],
-        drop_debugger: true,
-      },
-    },
-  },
+  // build: {
+  //   minify: "terser",
+  //   terserOptions: {
+  //     //detail to look https://terser.org/docs/api-reference#compress-options
+  //     compress: {
+  //       drop_console: false,
+  //       pure_funcs: ["console.log", "console.info"],
+  //       drop_debugger: true,
+  //     },
+  //   },
+  // },
 });
