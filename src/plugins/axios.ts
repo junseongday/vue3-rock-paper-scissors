@@ -9,7 +9,6 @@ axios.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // 요청 전에 작업을 수행합니다.
     // 예: 인증 토큰 추가, 요청 헤더 수정 등
-    console.log(8, config);
     return config;
   },
   (error: AxiosError) => {

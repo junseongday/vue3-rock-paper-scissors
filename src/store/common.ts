@@ -10,10 +10,7 @@ export const useCommonStore = defineStore("common", {
       this.loading = value;
     },
   },
-  getters: {},
-  // persist: {
-  //   enabled: true,
-  // },
+  getters: {}
 });
 
 // Need to be used outside the setup

@@ -16,8 +16,5 @@ export const useCounterStore = defineStore("counter", {
     doublePlusOne(): number {
       return this.doubleCount + 1;
     },
-  },
-  // persist: {
-  //   enabled: true,
-  // },
+  }
 });
