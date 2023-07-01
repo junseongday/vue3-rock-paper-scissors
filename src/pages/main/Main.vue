@@ -1,17 +1,22 @@
 <script setup lang="ts">
-import { ref, reactive, computed, watch } from "vue";
-import type { Ref } from "vue";
+import {  reactive, computed, watch } from "vue";
+// import type { Ref } from "vue";
 import { Log } from "~/interfaces/Main";
+import { storeToRefs } from "pinia";
+import { useMainStore } from "~/store/main.ts";
 
-const myChoice: Ref<Nullable<string>> = ref(null);
-const comChoice: Ref<Nullable<string>> = ref(null);
-const count: Ref<number> = ref(3);
-const winner: Ref<Nullable<string>> = ref(null);
-const lifeOfMe: Ref<number> = ref(3);
-const lifeOfCom: Ref<number> = ref(3);
-const isSelectable: Ref<boolean> = ref(true);
+const store = useMainStore();
+const { myChoice, comChoice, count, winner, lifeOfMe, lifeOfCom, isSelectable, logs } = storeToRefs(store);
+// 스토어 사용 안할시
+// const myChoice: Ref<Nullable<string>> = ref(null);
+// const comChoice: Ref<Nullable<string>> = ref(null);
+// const count: Ref<number> = ref(3);
+// const winner: Ref<Nullable<string>> = ref(null);
+// const lifeOfMe: Ref<number> = ref(3);
+// const lifeOfCom: Ref<number> = ref(3);
+// const isSelectable: Ref<boolean> = ref(true);
+// const logs: Log[] = reactive([]);
 
-const logs: Log[] = reactive([]);
 const selects = reactive([
   { name: "가위", value: "scissor" },
   { name: "바위", value: "rock" },
@@ -122,7 +127,7 @@ function updateLogs() {
     winner: winner.value,
   };
 
-  logs.unshift(log);
+  store.addLog(log);
 }
 
 function endGame(msg: string) {
@@ -133,7 +138,7 @@ function endGame(msg: string) {
     myChoice.value = null;
     comChoice.value = null;
     winner.value = null;
-    logs.length = 0; // logs 변수 초기화 []
+    store.resetLog(); // logs 변수 초기화 []
   }, 500);
 }
 </script>
