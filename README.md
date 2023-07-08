@@ -3,10 +3,11 @@
 I will create a rock-paper-scissors game using Vue 3, TypeScript, and Vite. I will cover the deployment method using GitHub Actions and the build process for a desktop app using Electron.
 
 Below is my blog, you might want to take a look at it.
-https://itjs.tistory.com/34
-https://itjs.tistory.com/39
-https://itjs.tistory.com/41
-https://itjs.tistory.com/43
+
+https://itjs.tistory.com/34  
+https://itjs.tistory.com/39  
+https://itjs.tistory.com/41  
+https://itjs.tistory.com/43  
 https://itjs.tistory.com/59
 
 ## Recommended IDE Setup
