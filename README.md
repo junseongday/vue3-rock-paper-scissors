@@ -1,4 +1,4 @@
-# Vue 3 + TypeScript + Vite
+# vue3-rock-paper-scissors
 
 I will create a rock-paper-scissors game using Vue 3, TypeScript, and Vite. I will cover the deployment method using GitHub Actions and the build process for a desktop app using Electron.
 
