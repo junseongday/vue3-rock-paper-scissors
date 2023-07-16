@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import {  reactive, computed, watch } from "vue";
+import { reactive, computed, watch } from "vue";
 // import type { Ref } from "vue";
 import { Log } from "~/interfaces/Main";
 import { storeToRefs } from "pinia";
 import { useMainStore } from "~/store/main.ts";
 
 const store = useMainStore();
-const { myChoice, comChoice, count, winner, lifeOfMe, lifeOfCom, isSelectable, logs } = storeToRefs(store);
+const {
+  myChoice,
+  comChoice,
+  count,
+  winner,
+  lifeOfMe,
+  lifeOfCom,
+  isSelectable,
+  logs,
+} = storeToRefs(store);
 // 스토어 사용 안할시
 // const myChoice: Ref<Nullable<string>> = ref(null);
 // const comChoice: Ref<Nullable<string>> = ref(null);
@@ -165,14 +174,14 @@ function endGame(msg: string) {
         <img
           v-for="life in lifeOfMe"
           :key="'me_live_' + life"
-          src="../../../public/images/heart.jpg"
+          src="/images/heart.jpg"
           class="heart"
           alt=""
         />
         <img
           v-for="life in leftLifeOfMe"
           :key="'me_broken_' + life"
-          src="../../../public/images/broken-heart.jpg"
+          src="/images/broken-heart.jpg"
           class="heart"
           alt=""
         />
@@ -183,14 +192,14 @@ function endGame(msg: string) {
         <img
           v-for="life in lifeOfCom"
           :key="'come_live_' + life"
-          src="../../../public/images/heart.jpg"
+          src="/images/heart.jpg"
           class="heart"
           alt=""
         />
         <img
           v-for="life in leftLifeOfCom"
           :key="'com_broken_' + life"
-          src="../../../public/images/broken-heart.jpg"
+          src="/images/broken-heart.jpg"
           class="heart"
           alt=""
         />
