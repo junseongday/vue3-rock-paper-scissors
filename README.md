@@ -1,6 +1,14 @@
-# Vue 3 + TypeScript + Vite
+# vue3-rock-paper-scissors
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+I will create a rock-paper-scissors game using Vue 3, TypeScript, and Vite. I will cover the deployment method using GitHub Actions and the build process for a desktop app using Electron.
+
+Below is my blog, you might want to take a look at it.
+
+https://itjs.tistory.com/34  
+https://itjs.tistory.com/39  
+https://itjs.tistory.com/41  
+https://itjs.tistory.com/43  
+https://itjs.tistory.com/59
 
 ## Recommended IDE Setup
 
